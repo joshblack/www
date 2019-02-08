@@ -1,0 +1,79 @@
+{
+  "name": "@joshblack/www",
+  "private": true,
+  "version": "0.0.0",
+  "author": "Josh Black <josh@josh.black>",
+  "license": "MIT",
+  "scripts": {
+    "build": "rimraf .cache public && gatsby build",
+    "clean": "rimraf .cache public node_modules",
+    "develop": "rimraf .cache && gatsby develop",
+    "format": "prettier --write \"**/*.{css,js,md,scss,ts}\"",
+    "format:diff": "prettier --list-different \"**/*.{css,js,md,scss,ts}\"",
+    "format:staged": "prettier --write"
+  },
+  "dependencies": {
+    "@carbon/elements": "^0.0.1-alpha.31",
+    "@ibm/plex": "^1.2.3",
+    "gatsby": "^2.0.115",
+    "gatsby-plugin-catch-links": "^2.0.10",
+    "gatsby-plugin-react-helmet": "^3.0.6",
+    "gatsby-plugin-sass": "^2.0.10",
+    "gatsby-plugin-sharp": "^2.0.20",
+    "gatsby-remark-autolink-headers": "^2.0.13",
+    "gatsby-remark-copy-linked-files": "^2.0.9",
+    "gatsby-remark-images": "^3.0.3",
+    "gatsby-remark-prismjs": "^3.2.4",
+    "gatsby-remark-smartypants": "^2.0.8",
+    "gatsby-source-filesystem": "^2.0.20",
+    "gatsby-transformer-remark": "^2.2.4",
+    "gatsby-transformer-sharp": "^2.1.13",
+    "graphql": "^14.1.1",
+    "prismjs": "^1.15.0",
+    "prop-types": "^15.6.2",
+    "react": "^16.8.0-alpha.0",
+    "react-dom": "^16.8.0-alpha.0",
+    "react-helmet": "^5.2.0"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^7.5.0",
+    "@commitlint/config-conventional": "^7.5.0",
+    "husky": "^1.3.1",
+    "lint-staged": "^8.1.3",
+    "node-sass": "^4.11.0",
+    "prettier": "^1.16.4",
+    "rimraf": "^2.6.3",
+    "webpack": "^4.29.1"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -e $HUSKY_GIT_PARAMS",
+      "pre-commit": "lint-staged"
+    }
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
+  "lint-staged": {
+    "*.js": [
+      "yarn format:staged",
+      "git add"
+    ],
+    "*.{scss,css}": [
+      "yarn format:staged",
+      "git add"
+    ],
+    "*.md": [
+      "yarn format:staged",
+      "git add"
+    ]
+  },
+  "prettier": {
+    "jsxBracketSameLine": true,
+    "printWidth": 80,
+    "singleQuote": true,
+    "trailingComma": "es5"
+  }
+}
