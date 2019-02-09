@@ -1,5 +1,3 @@
-import '../styles.scss';
-
 import { Link } from 'gatsby';
 import React from 'react';
 
