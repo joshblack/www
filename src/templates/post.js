@@ -1,3 +1,5 @@
+import '../styles.scss';
+
 import { graphql } from 'gatsby';
 import React from 'react';
 
