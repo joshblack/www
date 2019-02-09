@@ -2,10 +2,11 @@ import '../styles.scss';
 
 import { Link } from 'gatsby';
 import React from 'react';
+import Layout from '../components/Layout';
 
 export default function Writing() {
   return (
-    <>
+    <Layout>
       <strong>Josh Black</strong>
       <ul>
         <li>
@@ -16,6 +17,6 @@ export default function Writing() {
         </li>
       </ul>
       <h1>Writing</h1>
-    </>
+    </Layout>
   );
 }
