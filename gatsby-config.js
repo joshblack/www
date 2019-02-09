@@ -52,5 +52,23 @@ module.exports = {
       },
     },
     'gatsby-plugin-emotion',
+    {
+      resolve: 'gatsby-plugin-manifest',
+      options: {
+        name: 'Josh Black',
+        short_name: 'Josh Black',
+        start_url: '/',
+        background_color: '#000000',
+        theme_color: '#cccccc',
+        display: 'minimal-ui',
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-google-analytics',
+      options: {
+        trackingId: 'UA-134220116-1',
+      },
+    },
+    'gatsby-plugin-offline',
   ],
 };
