@@ -1,13 +1,12 @@
 import { Link } from 'gatsby';
 import React from 'react';
 import Meta from '../components/Meta';
-import Layout from '../components/Layout';
 
 // TODO: home (about, callout to writing and projects, contact),
 // writing, projects
 export default function Home() {
   return (
-    <Layout>
+    <>
       <Meta />
       <strong>Josh Black</strong>
       <ul>
@@ -27,6 +26,6 @@ export default function Home() {
           </li>
         </ul>
       </div>
-    </Layout>
+    </>
   );
 }
