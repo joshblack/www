@@ -51,5 +51,6 @@ module.exports = {
         includePaths: ['node_modules'],
       },
     },
+    'gatsby-plugin-emotion',
   ],
 };
