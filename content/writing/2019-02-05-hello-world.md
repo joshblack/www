@@ -20,6 +20,11 @@ _Note: this is a note that is in all italics_
 
 ```js
 // This is a code snippet
+import React from 'react';
+
+function MyApp() {
+  return <h1>Hello world!</h1>;
+}
 ```
 
 # Heading 1

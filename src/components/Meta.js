@@ -62,7 +62,7 @@ function Meta({ description, title }) {
         return (
           <Helmet
             htmlAttributes={{ lang: 'en' }}
-            title={siteMetadata.title}
+            title={title || siteMetadata.title}
             meta={meta}
           />
         );
