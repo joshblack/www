@@ -1,6 +1,7 @@
 'use strict';
 
 module.exports = {
+  pathPrefix: '',
   siteMetadata: {
     title: 'Josh Black',
     author: 'Josh Black',
@@ -61,6 +62,7 @@ module.exports = {
         background_color: '#000000',
         theme_color: '#cccccc',
         display: 'minimal-ui',
+        include_favicon: true,
       },
     },
     {
@@ -70,5 +72,11 @@ module.exports = {
       },
     },
     'gatsby-plugin-offline',
+    {
+      resolve: 'gatsby-plugin-react-axe',
+      options: {
+        showInProduction: false,
+      },
+    },
   ],
 };

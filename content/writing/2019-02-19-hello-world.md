@@ -1,12 +1,13 @@
 ---
 title: Hello world
+description: The one where it all began 😱
 ---
 
 ## What's up
 
 Consectetur reprehenderit blanditiis perspiciatis et ipsam. Doloremque ipsam commodi optio voluptatum blanditiis. Quae repudiandae suscipit aliquid voluptatem nam, minus Maiores officia inventore perferendis voluptas reprehenderit Atque dolore illo amet nemo!
 
-> This is a quote
+> This is a quote that could be really long
 
 This has a [link](https://josh.black).
 

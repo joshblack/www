@@ -1,3 +1,7 @@
 @import '~@carbon/elements/scss/type/font-face/sans';
 @import '~@carbon/elements/scss/type/font-face/serif';
 @import '~@carbon/elements/scss/type/font-face/mono';
+
+@include carbon--font-face-sans();
+@include carbon--font-face-serif();
+@include carbon--font-face-mono();
