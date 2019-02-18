@@ -1,8 +1,6 @@
 import { expressiveHeading03, expressiveHeading04 } from '@carbon/elements';
-import { Link } from 'gatsby';
+import { graphql, Link } from 'gatsby';
 import React from 'react';
-import Footer from '../components/Footer';
-import Header from '../components/Header';
 import Layout from '../components/Layout';
 import Main from '../components/Main';
 import Meta from '../components/Meta';
