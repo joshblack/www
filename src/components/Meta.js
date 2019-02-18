@@ -1,4 +1,4 @@
-import { StaticQuery, graphql } from 'gatsby';
+import { StaticQuery, graphql, withPrefix } from 'gatsby';
 import PropTypes from 'prop-types';
 import React from 'react';
 import Helmet from 'react-helmet';
@@ -18,6 +18,14 @@ const SITE_META_QUERY = graphql`
     }
   }
 `;
+
+const links = [
+  {
+    rel: 'icon',
+    type: 'image/x-icon',
+    href: withPrefix('/favicon.ico'),
+  },
+];
 
 function Meta({ description, title }) {
   return (
@@ -64,6 +72,7 @@ function Meta({ description, title }) {
             htmlAttributes={{ lang: 'en' }}
             title={title || siteMetadata.title}
             meta={meta}
+            link={links}
           />
         );
       }}

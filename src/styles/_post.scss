@@ -1,3 +1,7 @@
+@import '~@carbon/elements/scss/colors/colors';
+
+@include carbon--colors();
+
 // ------------------------------------------------------------------------------
 // .jb--post
 // ------------------------------------------------------------------------------
@@ -22,6 +26,7 @@
 
 .jb--post hr {
   margin: 3rem 0;
+  border-top: medium double $gray-90;
 }
 
 .jb--post table {
@@ -56,11 +61,34 @@
 
 .jb--post blockquote {
   margin: 2rem 0;
-  padding: 0 1rem;
+  padding: 1rem;
+  background-color: $carbon--white-0;
+  border-left: 4px solid $carbon--blue-60;
 }
 
 .jb--post blockquote p {
   margin-bottom: 0;
+}
+
+.jb--post table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.jb--post th {
+  @include carbon--type-style('body-short-01');
+
+  background-color: $carbon--white-0;
+  font-weight: 600;
+  text-align: left;
+  white-space: nowrap;
+  padding: 1rem;
+}
+
+.jb--post td {
+  @include carbon--type-style('body-short-01');
+  padding: 1rem;
 }
 
 /**

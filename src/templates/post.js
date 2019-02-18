@@ -1,39 +1,42 @@
+import { bodyLong02, expressiveHeading03 } from '@carbon/elements';
 import { graphql } from 'gatsby';
 import React from 'react';
+import Container from '../components/Container';
+import Layout from '../components/Layout';
+import Main from '../components/Main';
 import Meta from '../components/Meta';
 
 export default function Post({ data }) {
   const { html, fields, frontmatter, timeToRead } = data.markdownRemark;
   return (
-    <>
+    <Layout>
       <Meta title={frontmatter.title} />
-      <div>
-        <div css={container}>
-          <div css={title}>
+      <Main>
+        <article>
+          <Container as="header" css={header}>
             <h1>{frontmatter.title}</h1>
-            <span>
+            <small
+              css={{
+                ...expressiveHeading03,
+                display: 'block',
+                marginBottom: '1rem',
+              }}>
               {fields.date} — {timeToRead}min
-            </span>
-          </div>
-          <div
+            </small>
+          </Container>
+
+          <Container
             className="jb--post"
             dangerouslySetInnerHTML={{ __html: html }}
           />
-        </div>
-      </div>
-    </>
+        </article>
+      </Main>
+    </Layout>
   );
 }
 
-const container = {
-  width: '100%',
-  maxWidth: 600,
-  margin: '0 auto',
-  paddingTop: '20vh',
-};
-
-const title = {
-  marginBottom: '6rem',
+const header = {
+  marginBottom: '5rem',
 };
 
 export const pageQuery = graphql`
@@ -45,6 +48,7 @@ export const pageQuery = graphql`
       }
       frontmatter {
         title
+        description
       }
       timeToRead
     }
