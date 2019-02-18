@@ -2,14 +2,14 @@ import { bodyShort01, gray60 } from '@carbon/elements';
 import styled from '@emotion/styled';
 import React from 'react';
 import { Link } from 'gatsby';
+import List from './List';
 
-function RecentPosts({ posts }) {
+function Posts({ posts }) {
   return (
-    <List className="bx--grid">
-      {posts.edges.map(post => (
-        <li key={post.node.frontmatter.title} className="bx--row">
+    <List>
+      {posts.map(post => (
+        <li key={post.node.frontmatter.title}>
           <Article
-            className="bx--col--auto"
             title={post.node.frontmatter.title}
             description={post.node.frontmatter.description}
             slug={post.node.fields.slug}
@@ -21,10 +21,6 @@ function RecentPosts({ posts }) {
     </List>
   );
 }
-
-const List = styled('ul')({
-  listStyle: 'none',
-});
 
 function Article({ className, date, description, title, slug, timeToRead }) {
   return (
@@ -56,4 +52,4 @@ const articleHeader = {
   marginBottom: '1rem',
 };
 
-export default RecentPosts;
+export default Posts;

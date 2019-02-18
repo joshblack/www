@@ -12,21 +12,23 @@ import Container from './Container';
 
 export default function Footer() {
   return (
-    <Container as="footer" css={footer}>
-      <span css={madeWith}>
-        Made with <span aria-label="Man face-palming">🤦‍♂️ </span> by Josh Black
-      </span>
-      <ul css={list}>
-        {links.map(({ href, text, ...rest }, index) => (
-          <li key={href}>
-            {index !== 0 && <span css={linkSpacer}>•</span>}
-            <a href={href} {...rest} css={link}>
-              {text}
-            </a>
-          </li>
-        ))}
-      </ul>
-    </Container>
+    <footer css={background}>
+      <Container css={footer}>
+        <span css={madeWith}>
+          Made with <span aria-label="Man face-palming">🤦‍♂️ </span> by Josh Black
+        </span>
+        <ul css={list}>
+          {links.map(({ href, text, ...rest }, index) => (
+            <li key={href}>
+              {index !== 0 && <span css={linkSpacer}>•</span>}
+              <a href={href} {...rest} css={link}>
+                {text}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </Container>
+    </footer>
   );
 }
 
@@ -49,14 +51,17 @@ const links = [
   },
 ];
 
-const footer = {
-  display: 'flex',
-  flexDirection: 'column',
-  justifyContent: 'space-between',
+const background = {
   backgroundColor: gray80,
   height: 'var(--footer-height)',
   paddingTop: '1.25rem',
   paddingBottom: '1.25rem',
+};
+
+const footer = {
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'space-between',
 };
 
 const list = {
