@@ -38,7 +38,8 @@ code {
   @include carbon--type-style('code-02');
 }
 
-a {
+a,
+a code.language-text {
   color: $interactive-01;
   text-decoration: none;
 }
@@ -49,4 +50,14 @@ a:hover {
 
 small {
   @include carbon--type-style('body-short-01');
+}
+
+h1 code,
+h2 code,
+h3 code,
+h4 code,
+h5 code,
+h6 code,
+a code {
+  font-size: inherit;
 }

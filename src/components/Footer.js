@@ -5,6 +5,7 @@ import {
   gray20,
   gray60,
   gray80,
+  gray100,
   bodyShort02,
 } from '@carbon/elements';
 import React from 'react';
@@ -52,7 +53,7 @@ const links = [
 ];
 
 const background = {
-  backgroundColor: gray80,
+  backgroundColor: gray100,
   height: 'var(--footer-height)',
   paddingTop: '1.25rem',
   paddingBottom: '1.25rem',
@@ -62,6 +63,10 @@ const footer = {
   display: 'flex',
   flexDirection: 'column',
   justifyContent: 'space-between',
+  height: '100%',
+  '@media (min-width: 480px)': {
+    flexDirection: 'row',
+  },
 };
 
 const list = {
@@ -80,7 +85,8 @@ const link = {
 
 const madeWith = {
   ...bodyShort02,
-  display: 'block',
+  display: 'flex',
+  alignItems: 'center',
   color: gray10,
 };
 
