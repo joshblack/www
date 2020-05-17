@@ -5,7 +5,7 @@
   "author": "Josh Black <josh@josh.black>",
   "license": "MIT",
   "scripts": {
-    "build": "next build && next export -o build",
+    "build": "next build",
     "clean": "rimraf .next build",
     "develop": "next",
     "format": "prettier --write \"**/*.{css,js,md,scss,ts}\"",
