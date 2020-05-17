@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { useEffect, useState } from 'react';
+import { useEffect, useLayout, useState } from 'react';
 import { Moon32 as Moon, Sun32 as Sun } from '@carbon/icons-react';
 
 export default function Header() {
@@ -9,7 +9,7 @@ export default function Header() {
 
   // The `window.__colorMode` and `window.__setColorMode` property/method are
   // provided through an IIFE defined in `src/pages/_document.js`
-  useEffect(() => {
+  useLayoutEffect(() => {
     setMode(window.__colorMode);
   }, []);
 
