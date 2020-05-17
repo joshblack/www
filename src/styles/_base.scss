@@ -1,0 +1,89 @@
+///
+/// Base styles
+///
+
+@use './theme';
+@use './type';
+
+html,
+body,
+#__next {
+  width: 100%;
+  height: 100%;
+
+  /**
+   * Reference:
+   * https://twitter.com/AllThingsSmitty/status/1254151507412496384
+   */
+  min-height: 100%;
+  /**
+   * We update the above tweet with the below property as it seems to have been
+   * updated.
+   *
+   * Reference:
+   * https://github.com/postcss/autoprefixer/issues/1035#issuecomment-387247093
+   */
+  min-height: stretch;
+}
+
+body {
+  margin: 0;
+}
+
+body {
+  font-family: type.font-family('body');
+  font-size: 100%;
+  line-height: 1.5;
+  background: theme.color('ui-background');
+  color: theme.color('text-primary');
+}
+
+body.dark-mode {
+  @include theme.theme(theme.$dark-theme);
+  -webkit-font-smoothing: antialiased;
+}
+
+body.light-mode {
+  @include theme.theme(theme.$light-theme);
+}
+
+code {
+  font-family: type.font-family(code);
+  font-size: 0.75em;
+  line-height: inherit;
+}
+
+pre > code {
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+/**
+ * Reset heading styles, prefer explicit styles for headings so that we can use
+ * these tags semantically
+ */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: type.font-family('heading');
+  margin: 0;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+}
+
+p {
+  margin: 0;
+}
+
+a,
+a:visited {
+  color: theme.color('interactive-01');
+}
+
+svg {
+  fill: currentColor;
+}

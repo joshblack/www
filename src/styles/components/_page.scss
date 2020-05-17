@@ -1,0 +1,10 @@
+///
+/// Page
+///
+
+@use '../layout';
+
+.page {
+  padding: 0 1rem;
+  margin-top: layout.spacing(9);
+}

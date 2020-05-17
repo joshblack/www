@@ -1,0 +1,58 @@
+///
+/// Home
+///
+
+@use '../layout';
+@use '../theme';
+@use '../type';
+
+.home {
+  margin: layout.spacing(8) 0 layout.spacing(11) 0;
+  max-width: layout.rem(650px);
+  grid-area: content;
+  justify-self: center;
+}
+
+.home__title {
+  display: flex;
+  font-family: type.font-family('heading');
+  font-size: type.font-size(6);
+  margin-bottom: layout.spacing(7);
+  align-items: center;
+  position: relative;
+}
+
+.home__title::before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: -11px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: theme.color('interactive-01');
+  transform: translateY(-50%);
+}
+
+.home__text {
+  font-size: type.font-size(4);
+  margin-bottom: layout.spacing(6);
+}
+
+.browse-posts {
+  display: block;
+  font-size: type.font-size(4);
+  margin: layout.spacing(6) 0;
+}
+
+.home__references-title {
+  font-size: type.font-size(4);
+  font-weight: type.font-weight('bold');
+  margin: layout.spacing(11) 0 layout.spacing(4);
+}
+
+.home__references {
+  list-style: disc;
+  padding-left: layout.spacing(4);
+}

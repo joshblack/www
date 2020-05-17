@@ -1,0 +1,128 @@
+///
+/// Typography
+///
+
+@use 'sass:list';
+@use 'sass:map';
+@use 'sass:string';
+@use './layout';
+
+//-------------------------------------------------------------------------------
+// Font-size
+//-------------------------------------------------------------------------------
+$font-families: (
+  heading: string.unquote("'Inter', sans-serif"),
+  body:
+    string.unquote(
+      '-apple-system, "Inter", BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji'
+    ),
+  code:
+    string.unquote(
+      'SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace'
+    ),
+);
+
+@function font-family($name) {
+  @return var(--font-family-#{$name}, #{map.get($font-families, $name)});
+}
+
+@mixin font-family($name) {
+  font-family: font-family($name);
+}
+
+@mixin font-families($families: $font-families) {
+  @each $key, $value in $families {
+    --font-family-#{$key}: #{$value};
+  }
+}
+
+@each $key, $value in $font-families {
+  .font-family-#{$key} {
+    @include font-family($key);
+  }
+}
+
+//-------------------------------------------------------------------------------
+// Font-size
+//-------------------------------------------------------------------------------
+$font-size-scale: (12px, 14px, 16px, 18px, 20px, 24px, 32px, 48px);
+
+@function font-size($step) {
+  $value: layout.rem(list.nth($font-size-scale, $step + 1));
+  @return var(--font-size-#{$step}, #{$value});
+}
+
+@mixin font-size($step) {
+  font-size: font-size($step);
+}
+
+@mixin font-sizes($sizes: $font-size-scale) {
+  @each $key, $value in $sizes {
+    --font-size-#{$key}: #{$value};
+  }
+}
+
+// Font size
+@for $i from 0 through list.length($font-size-scale) - 1 {
+  .text-#{$i} {
+    @include font-size($i);
+  }
+}
+
+//-------------------------------------------------------------------------------
+// Font weights
+//-------------------------------------------------------------------------------
+$font-weights: (
+  normal: 400,
+  bold: 700,
+);
+
+@function font-weight($name) {
+  @return var(--font-weight-#{$name}, #{map.get($font-weights, $name)});
+}
+
+@mixin font-weight($name) {
+  font-weight: font-weight($name);
+}
+
+@mixin font-weights($weights: $font-weights) {
+  @each $key, $value in $weights {
+    --font-weight-#{$name}: #{$value};
+  }
+}
+
+@each $name, $value in $font-weights {
+  .font-weight-#{$name} {
+    @include font-weight($name);
+  }
+}
+
+//-------------------------------------------------------------------------------
+// Line height
+//-------------------------------------------------------------------------------
+$line-heights: (
+  none: 1,
+  tight: 1.25,
+  snug: 1.375,
+  normal: 1.5,
+);
+
+@function line-height($name) {
+  @return var(--line-height-#{$name}, #{map.get($line-heights, $name)});
+}
+
+@mixin line-height($name) {
+  line-height: line-height($name);
+}
+
+@mixin line-heights($heights: $line-heights) {
+  @each $name, $value in $heights {
+    --line-height-#{$name}: #{$value};
+  }
+}
+
+@each $name, $value in $line-heights {
+  .tracking-#{$name} {
+    @include line-height($name);
+  }
+}

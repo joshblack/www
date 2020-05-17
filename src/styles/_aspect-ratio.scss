@@ -1,0 +1,36 @@
+///
+/// Aspect ratios
+///
+
+@use 'sass:math';
+
+.aspect-ratio {
+  position: relative;
+  height: 0;
+  padding-top: var(--aspect-ratio);
+}
+
+.aspect-ratio-object {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+// $aspect-ratios: ((1, 1), (2, 1), (4, 3), (16, 9));
+
+@mixin ratio($width, $height) {
+  --aspect-ratio: #{percentage($height / $width)};
+}
+
+// @each $aspect-ratio in $aspect-ratios {
+// $width: nth($aspect-ratio, 1);
+// $height: nth($aspect-ratio, 2);
+
+// .aspect-ratio--#{$width}x#{$height} {
+// // padding-top: math.percentage($height / $width);
+// }
+// }

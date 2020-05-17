@@ -1,0 +1,43 @@
+///
+/// Theme
+///
+
+$dark-theme: (
+  interactive-01: #ff7d97,
+  ui-background: #121212,
+  ui-01: rgba(255, 255, 255, 0.25),
+  ui-02: rgba(255, 255, 255, 0.05),
+  hover: rgba(255, 255, 255, 0.1),
+  text-primary: #ffffff,
+  text-secondary: rgba(255, 255, 255, 0.7),
+  inverse-background: #ffffff,
+  inverse-text: #121212,
+);
+
+$light-theme: (
+  interactive-01: #d81b60,
+  ui-background: #fafafa,
+  ui-01: rgba(0, 0, 0, 0.1),
+  ui-02: rgba(0, 0, 0, 0.025),
+  hover: rgba(0, 0, 0, 0.05),
+  text-primary: rgba(0, 0, 0, 0.87),
+  text-secondary: rgba(0, 0, 0, 0.6),
+  inverse-background: #121212,
+  inverse-text: #ffffff,
+);
+
+@function color($name) {
+  @return var(--#{$name});
+}
+
+@mixin theme($theme) {
+  @each $key, $value in $theme {
+    --#{$key}: #{$value};
+  }
+}
+
+@each $key, $value in $light-theme {
+  .#{$key} {
+    color: var(--#{$key});
+  }
+}
