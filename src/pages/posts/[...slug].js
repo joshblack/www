@@ -66,16 +66,23 @@ export async function getStaticPaths() {
     {
       posts(directory: "/posts") {
         slug
+        frontmatter {
+          status
+        }
       }
     }
   `);
-  const paths = result.data.posts.map((post) => {
-    return {
-      params: {
-        slug: post.slug.split('/'),
-      },
-    };
-  });
+  const paths = result.data.posts
+    .filter((post) => {
+      return post.frontmatter.status !== 'DRAFT';
+    })
+    .map((post) => {
+      return {
+        params: {
+          slug: post.slug.split('/'),
+        },
+      };
+    });
 
   return {
     paths,
