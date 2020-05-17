@@ -23,7 +23,9 @@ export default function Header() {
     setMode(mode === 'dark' ? 'light' : 'dark');
   }
 
-  console.log(mode, window.__colorMode);
+  if (typeof window !== 'undefined') {
+    console.log(mode, window.__colorMode);
+  }
 
   return (
     <>
