@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { useEffect, useLayout, useState } from 'react';
+import { useEffect, useLayoutEffect, useState } from 'react';
 import { Moon32 as Moon, Sun32 as Sun } from '@carbon/icons-react';
 
 export default function Header() {
