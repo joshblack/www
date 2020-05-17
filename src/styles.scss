@@ -1,18 +1,19 @@
-@import './styles/reset';
-@import './styles/font-face';
-@import './styles/type';
-@import './styles/post';
-@import './styles/vendor';
+///
+/// Styles
+///
 
-:root {
-  --header-height: 4rem;
-  --footer-height: 6rem;
-  --offset-top: 10vh;
+// Base styles
+@use './styles/reset';
+@use './styles/layout';
+@use './styles/type';
+@use './styles/base';
+@use './styles/utilities';
 
-  --site-width: 100%;
-  --site-max-width: 42rem;
-  --site-padding: 1rem;
-
-  --safe-area-inset-top: env(safe-area-inset-top);
-  --safe-area-inset-bottom: env(safe-area-inset-bottom);
-}
+// Components
+@use './styles/components/footer';
+@use './styles/components/header';
+@use './styles/components/home';
+@use './styles/components/layout' as layout-component;
+@use './styles/components/markdown';
+@use './styles/components/page';
+@use './styles/components/posts';

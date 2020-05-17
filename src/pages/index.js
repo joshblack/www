@@ -1,75 +1,64 @@
-import {
-  bodyShort02,
-  expressiveHeading03,
-  expressiveHeading04,
-  gray60,
-} from '@carbon/elements';
-import React from 'react';
-import { graphql } from 'gatsby';
-import Layout from '../components/Layout';
-import Main from '../components/Main';
-import Meta from '../components/Meta';
-import Container from '../components/Container';
-import ExternalLink from '../components/ExternalLink';
-import Posts from '../components/Posts';
+import Link from 'next/link';
+import * as React from 'react';
+import Page from '../components/Page';
 
-export default function Home({ data }) {
+export default function Home() {
   return (
-    <Layout>
-      <Meta title="Josh Black" />
-      <Main>
-        <Container>
-          <h1>Josh Black</h1>
-          <span
-            css={{
-              ...expressiveHeading04,
-              display: 'block',
-              marginBottom: '3rem',
-            }}>
-            <em>Software Engineer</em>
-          </span>
-          <p css={{ ...expressiveHeading04, marginBottom: '2rem' }}>
-            Hi there! <span aria-label="waving">👋</span> I’m a software
-            engineer based in Austin, Texas. I’m currently building a{' '}
-            <ExternalLink href="https://www.carbondesignsystem.com">
-              design system for IBM.
-            </ExternalLink>
-          </p>
-          <p css={{ ...expressiveHeading03, marginBottom: '4rem' }}>
-            Want to get in touch?{' '}
-            <a href="mailto:josh@josh.black">Send me an email.</a>
-          </p>
-        </Container>
-        <Container as="section">
-          <header css={{ marginBottom: '1.5rem' }}>
-            <h2>Recent posts</h2>
-          </header>
-          <Posts posts={data.allMarkdownRemark.edges} />
-        </Container>
-      </Main>
-    </Layout>
+    <Page className="home">
+      <article>
+        <h1 className="home__title">
+          Hi there!&nbsp;<span aria-label="Wave">👋</span>
+        </h1>
+        <p className="home__text">
+          My name is Josh Black. I build{' '}
+          <a
+            href="https://www.carbondesignsystem.com"
+            rel="noopener
+                noreferrer">
+            design systems at IBM.
+          </a>
+        </p>
+        <p className="home__text">
+          This site is a growing collection of my thoughts and experiences while
+          working on software. Some of it is short or incomplete, others are
+          ideas that turned out to be completely wrong. My hope is that by
+          sharing my personal journey I can help others in some way.
+        </p>
+        <p className="home__text">
+          I write most often about design systems and the process around
+          building them. Some of these are hard-earned lessons, others are the
+          craziest of experiments. Other times, I'll share more about my
+          personal journey navigating my own career and life.
+        </p>
+        <p className="home__text">
+          In terms of this place, it's very much so at the beginning. I'm
+          excited to grow it throughout the year, and I'm hoping that what I
+          share can help you in some way.
+        </p>
+        <p className="home__text">
+          If anything I'm writing about is something you'd like to talk more
+          about, feel free to reach out over on{' '}
+          <a href="https://twitter.com/__joshblack" rel="noopener noreferrer">
+            Twitter
+          </a>
+          .
+        </p>
+        <Link href="/posts">
+          <a className="browse-posts">Browse posts</a>
+        </Link>
+      </article>
+      <section>
+        <h2 className="home__references-title">
+          Looking for a place to start?
+        </h2>
+        <ul className="home__references">
+          <li>
+            <Link href="/posts/2020/the-one-where-it-all-began">
+              <a>The one where it all began</a>
+            </Link>
+          </li>
+        </ul>
+      </section>
+    </Page>
   );
 }
-
-export const query = graphql`
-  {
-    allMarkdownRemark(
-      sort: { fields: [fields___date], order: DESC }
-      limit: 5
-    ) {
-      edges {
-        node {
-          frontmatter {
-            title
-            description
-          }
-          fields {
-            date(formatString: "MMMM DD, YYYY")
-            slug
-          }
-          timeToRead
-        }
-      }
-    }
-  }
-`;

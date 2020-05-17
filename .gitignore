@@ -1,5 +1,6 @@
 # Build folders
-public
+.next
+build
 
 # Config files
 .npmrc

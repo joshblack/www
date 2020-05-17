@@ -1,0 +1,26 @@
+///
+/// Footer
+///
+
+@use '../layout';
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: layout.rem(96px);
+  grid-area: footer;
+}
+
+.footer__links {
+  display: flex;
+  align-items: center;
+}
+
+.footer__link-item:not(:last-of-type) {
+  margin-right: layout.spacing(4);
+}
+
+.footer__link {
+  display: flex;
+}

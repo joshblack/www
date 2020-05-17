@@ -1,89 +1,33 @@
+import * as React from 'react';
 import {
-  white,
-  black,
-  gray10,
-  gray20,
-  gray60,
-  gray80,
-  bodyShort02,
-} from '@carbon/elements';
-import React from 'react';
-import Container from './Container';
+  LogoTwitter32 as Twitter,
+  LogoGithub32 as GitHub,
+} from '@carbon/icons-react';
 
 export default function Footer() {
   return (
-    <footer css={background}>
-      <Container css={footer}>
-        <span css={madeWith}>
-          Made with <span aria-label="Man face-palming">🤦‍♂️ </span> by Josh Black
-        </span>
-        <ul css={list}>
-          {links.map(({ href, text, ...rest }, index) => (
-            <li key={href}>
-              {index !== 0 && <span css={linkSpacer}>•</span>}
-              <a href={href} {...rest} css={link}>
-                {text}
-              </a>
-            </li>
-          ))}
-        </ul>
-      </Container>
+    <footer className="footer">
+      <span className="text-secondary">Josh Black © 2020</span>
+      <ul className="footer__links">
+        <li className="footer__link-item">
+          <a
+            className="footer__link"
+            href="https://github.com/joshblack"
+            rel="noopener noreferrer">
+            <span className="sr-only">GitHub</span>
+            <GitHub />
+          </a>
+        </li>
+        <li className="footer__link-item">
+          <a
+            className="footer__link"
+            href="https://twitter.com/__joshblack"
+            rel="noopener noreferrer">
+            <span className="sr-only">Twitter</span>
+            <Twitter />
+          </a>
+        </li>
+      </ul>
     </footer>
   );
 }
-
-const links = [
-  {
-    href: 'mailto:josh@josh.black',
-    text: 'Contact',
-  },
-  {
-    href: 'https://github.com/joshblack',
-    rel: 'noopener noreferrer',
-    target: '_blank',
-    text: 'GitHub',
-  },
-  {
-    href: 'https://twitter.com/__joshblack',
-    rel: 'noopener noreferrer',
-    target: '_blank',
-    text: 'Twitter',
-  },
-];
-
-const background = {
-  backgroundColor: gray80,
-  height: 'var(--footer-height)',
-  paddingTop: '1.25rem',
-  paddingBottom: '1.25rem',
-};
-
-const footer = {
-  display: 'flex',
-  flexDirection: 'column',
-  justifyContent: 'space-between',
-};
-
-const list = {
-  display: 'flex',
-  alignItems: 'center',
-  listStyle: 'none',
-  margin: 0,
-  padding: 0,
-  color: gray10,
-};
-
-const link = {
-  ...bodyShort02,
-  color: gray10,
-};
-
-const madeWith = {
-  ...bodyShort02,
-  display: 'block',
-  color: gray10,
-};
-
-const linkSpacer = {
-  margin: '0 0.5rem',
-};
