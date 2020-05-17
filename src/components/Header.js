@@ -23,6 +23,8 @@ export default function Header() {
     setMode(mode === 'dark' ? 'light' : 'dark');
   }
 
+  console.log(mode, window.__colorMode);
+
   return (
     <>
       <a className="show-on-focus interactive-01" href="#main-content">
