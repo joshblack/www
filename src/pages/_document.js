@@ -17,7 +17,7 @@ class MyDocument extends Document {
             rel="stylesheet"
           />
           {process.env.NODE_ENV === 'production' && (
-            <script>{analytics}</script>
+            <script dangerouslySetInnerHTML={{ __html: analytics }} />
           )}
         </Head>
         <body>
