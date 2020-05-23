@@ -16,7 +16,9 @@ class MyDocument extends Document {
             href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap"
             rel="stylesheet"
           />
-          <script>{analytics}</script>
+          {process.env.NODE_ENV === 'production' && (
+            <script>{analytics}</script>
+          )}
         </Head>
         <body>
           <script dangerouslySetInnerHTML={{ __html: themeSwitcher }} />
