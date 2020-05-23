@@ -1,4 +1,5 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document';
+import { head, script } from '../analytics/gtag';
 
 class MyDocument extends Document {
   static async getInitialProps(ctx) {
@@ -16,33 +17,18 @@ class MyDocument extends Document {
             href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap"
             rel="stylesheet"
           />
-          {process.env.NODE_ENV === 'production' && (
-            <script dangerouslySetInnerHTML={{ __html: analytics }} />
-          )}
+          {process.env.NODE_ENV === 'production' && head}
         </Head>
         <body>
           <script dangerouslySetInnerHTML={{ __html: themeSwitcher }} />
           <Main />
           <NextScript />
-          {process.env.NODE_ENV === 'production' && (
-            <script
-              async
-              src="https://www.googletagmanager.com/gtag/js?id=UA-134220116-1"
-            />
-          )}
+          {process.env.NODE_ENV === 'production' && script}
         </body>
       </Html>
     );
   }
 }
-
-const analytics = `
-window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-
-gtag('config', 'UA-134220116-1');
-`;
 
 const themeSwitcher = `
 /**
