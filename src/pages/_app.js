@@ -1,6 +1,9 @@
 import '../styles.scss';
-import * as React from 'react';
+
+import Router from 'next/router';
+import React, { useEffect } from 'react';
 import ReactDOM from 'react-dom';
+import { pageview } from '../analytics/gtag';
 
 let didInitializeAxe = false;
 
@@ -13,5 +16,15 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 export default function MyApp({ Component, pageProps }) {
+  useEffect(() => {
+    function handleRouteChange(url) {
+      pageview(url);
+    }
+    Router.events.on('routeChangeComplete', handleRouteChange);
+    return () => {
+      Router.events.off('routeChangeComplete', handleRouteChange);
+    };
+  }, []);
+
   return <Component {...pageProps} />;
 }
