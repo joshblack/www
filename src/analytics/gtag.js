@@ -4,7 +4,7 @@ export const GA_SITE_ID = 'UA-134220116-1';
 
 // https://developers.google.com/analytics/devguides/collection/gtagjs/pages
 export function pageview(url) {
-  window.gtag('config', GA_TRACKING_ID, {
+  window.gtag('config', GA_SITE_ID, {
     page_path: url,
   });
 }
