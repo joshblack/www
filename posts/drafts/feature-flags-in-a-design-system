@@ -1,0 +1,13 @@
+---
+title: Feature flags in a design system
+status: draft
+---
+
+- Feature flags
+  - What are they and why would you use them?
+    - Ability to ship functionality without breaking changes
+    - Can have sponsor teams try out work before stable release
+  - Enable experimental features in Sass and JavaScript
+    - How to coordinate across language barriers?
+  - JavaScript
+    - How to make sure unused code gets eliminated?
