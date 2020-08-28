@@ -308,7 +308,8 @@ only works but why it works in terms of ownership?
 First up, let's try and change the type of the `self` argument in `increment`.
 When it is specified as `self`, we know that its immutable and that it takes
 ownership of `self`. If we don't want to take ownership of a value, and instead
-want to borrow it, we can use the `&mut` type that we saw in the solution.
+want to borrow it, we can use the mutable reference type (`&mut`) that we saw in
+the solution.
 
 Here, we use a mutable reference to borrow an owned value (in this case, our
 `counter`):
