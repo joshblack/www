@@ -67,25 +67,15 @@ In JavaScript, you can mutate `count` directly in the object, or the `Counter`
 class we made above.
 
 ```js
-const counter1 = new Counter();
-const counter2 = { count: 0 };
+const counter = { count: 0 };
 
-counter1.count = 1;
-counter2.count = 2;
+counter.count = 2;
 ```
-
-While this may or may not be expected behavior for a class, sometimes it's
-helpful to keep these fields private, we can still mutate the underlying `count`
-value for the class instance or object.
 
 If we tried to do something similar in Rust, however, we would run into the
 following problem:
 
 ```rust
-struct Counter {
-  count: i32,
-}
-
 fn main() {
   let counter = Counter { count: 0 };
   // error[E0594]: cannot assign to `counter.count`, as `counter` is
