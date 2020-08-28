@@ -140,10 +140,6 @@ We can do something similar in Rust by using the `impl` block for the `Counter`
 type:
 
 ```rust
-struct Counter {
-  count: i32,
-}
-
 impl Counter {
   fn new() -> Self {
     Self { count: 0 }
@@ -164,7 +160,7 @@ JavaScript.
 
 _Note: the associated function specifies that it returns `Self` over in:
 `fn new() -> Self`. Here, `Self` refers to the type that the `impl` is for, in
-this case `Counter`._
+this case `Counter`_
 
 If we wanted to add in our instance methods `increment` and `decrement`, we
 would do something similar but this time we include the `self` argument. Inside
@@ -214,10 +210,6 @@ Turns out, we ran into the same problem that we had with `let counter`. Here,
 mutable reference by using `&mut self`:
 
 ```rust
-struct Counter {
-  count: i32,
-}
-
 impl Counter {
   fn new() -> Self {
     Self { count: 0 }
@@ -293,18 +285,18 @@ fn main() {
 ```
 
 When the `counter` value is moved to the `increment` method, our `main` function
-no longer has ownership over them. This very much so falls in line with Rust's
-[rules of ownership](https://doc.rust-lang.org/book/ch04-01-what-is-ownership.html#ownership-rules)
-where:
+no longer has ownership over them. This falls in line with Rust's
+[rules of ownership](https://doc.rust-lang.org/book/ch04-01-what-is-ownership.html#ownership-rules):
 
 - Each value in Rust has a variable that’s called its owner.
 - There can only be one owner at a time.
 
 In our `main` function, `counter` is the owner of the value from
 `Counter::new()`. The owner of `counter` is then moved to the `increment` method
-and then dropped from the scope. This means that when we use `println!` to try
-and print the value we get an error. In this case, we are trying to borrow a
-value that has already moved.
+and then dropped from the scope.
+
+As a result, when we use `println!` to try and print the value we get an error.
+In this case, we are trying to borrow a value that has already moved.
 
 ## Rewinding to the solution
 
@@ -313,14 +305,13 @@ problems that came up with ownership by changing the solution. How could we
 rewind from where we are to understand why each piece of our implementation not
 only works but why it works in terms of ownership?
 
-First up, we might try and change the type of the `self` argument in
-`increment`. When it is specified as `self`, we know that its immutable and that
-it takes ownership of `self`. If we don't want to take ownership of a value, and
-instead want to borrow it, we could use the `&mut` type that we saw in the
-solution.
+First up, let's try and change the type of the `self` argument in `increment`.
+When it is specified as `self`, we know that its immutable and that it takes
+ownership of `self`. If we don't want to take ownership of a value, and instead
+want to borrow it, we can use the `&mut` type that we saw in the solution.
 
 Here, we use a mutable reference to borrow an owned value (in this case, our
-`Counter`):
+`counter`):
 
 ```rust
 impl Counter {

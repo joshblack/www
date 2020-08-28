@@ -83,6 +83,9 @@
 .markdown ol,
 .markdown ul {
   padding-left: layout.spacing(7);
+  margin-top: layout.spacing(7);
+  margin-bottom: layout.spacing(8);
+  font-size: type.font-size(3);
 }
 
 .markdown li {
@@ -105,6 +108,9 @@
   background-color: theme.color('ui-01');
   padding: 3px layout.spacing(1);
   border-radius: 4px;
+  // This enables code snippets not to wrap across lines when inline in a
+  // paragraph
+  white-space: nowrap;
 }
 
 .markdown table {
