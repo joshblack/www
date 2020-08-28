@@ -1,6 +1,6 @@
 ---
 title: 'Rust for JavaScript Developers: Ownership'
-date: 2020-06-16
+date: 2020-08-30
 ---
 
 Getting into Rust from JavaScript can be challenging at times. One of the harder
