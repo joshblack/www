@@ -53,6 +53,9 @@ export default function Home() {
         </h2>
         <ul className="home__references">
           <li>
+            <Link href="posts/2020/rust-for-javascript-developers-ownership">
+              <a>Rust for JavaScript Developers: Ownership</a>
+            </Link>
             <Link href="/posts/2020/the-one-where-it-all-began">
               <a>The one where it all began</a>
             </Link>
