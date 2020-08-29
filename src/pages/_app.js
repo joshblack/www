@@ -18,7 +18,9 @@ if (process.env.NODE_ENV !== 'production') {
 export default function MyApp({ Component, pageProps }) {
   useEffect(() => {
     function handleRouteChange(url) {
-      pageview(url);
+      if (process.env.NODE_ENV === 'production') {
+        pageview(url);
+      }
     }
     Router.events.on('routeChangeComplete', handleRouteChange);
     return () => {
