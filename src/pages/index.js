@@ -56,6 +56,8 @@ export default function Home() {
             <Link href="posts/2020/rust-for-javascript-developers-ownership">
               <a>Rust for JavaScript Developers: Ownership</a>
             </Link>
+          </li>
+          <li>
             <Link href="/posts/2020/the-one-where-it-all-began">
               <a>The one where it all began</a>
             </Link>
