@@ -129,12 +129,11 @@
 .markdown table th,
 .markdown table td {
   padding: layout.spacing(2) layout.spacing(3);
-  border: 1px solid theme.color('ui-01');
+  border: 1px solid theme.color('inverse-background');
 }
 
 .markdown table tr {
   background-color: theme.color('ui-background');
-  border-top: 1px solid theme.color('inverse-background');
 }
 
 .markdown table tr:nth-child(2n) {
@@ -151,4 +150,14 @@
   margin: layout.spacing(7) 0;
   -webkit-overflow-scrolling: touch;
   overflow: auto;
+}
+
+.markdown blockquote {
+  margin: 2rem 0;
+  padding: 0.125rem 2rem;
+  border-left: 4px solid theme.color('inverse-background');
+}
+
+.markdown blockquote * {
+  margin: 0;
 }
