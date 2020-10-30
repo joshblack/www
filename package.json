@@ -4,6 +4,11 @@
   "version": "0.0.0",
   "author": "Josh Black <josh@josh.black>",
   "license": "MIT",
+  "workspaces": {
+    "packages": [
+      "packages/*"
+    ]
+  },
   "scripts": {
     "build": "next build",
     "clean": "rimraf .next build",
