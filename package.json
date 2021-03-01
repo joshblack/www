@@ -30,7 +30,7 @@
     "gray-matter": "^4.0.2",
     "next": "^10.0.0",
     "playwright": "^1.5.2",
-    "prismjs": "^1.22.0",
+    "prismjs": "^1.23.0",
     "prop-types": "^15.7.2",
     "react": "^17.0.1",
     "react-axe": "^3.5.4",
