@@ -12,10 +12,10 @@ export default function Home() {
         <p className="home__text">
           My name is Josh Black. I build{' '}
           <a
-            href="https://www.carbondesignsystem.com"
+            href="https://primer.style"
             rel="noopener
                 noreferrer">
-            design systems at IBM.
+            design systems at GitHub.
           </a>
         </p>
         <p className="home__text">
