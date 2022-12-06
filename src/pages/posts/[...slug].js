@@ -7,9 +7,6 @@ import { query } from '../../data';
 export default function Post({ title, description = '', readingTime, html }) {
   const router = useRouter();
   const slug = router.query.slug || [];
-  const imageURL = new URL('https://josh.black/api/image');
-  imageURL.searchParams.set('title', title);
-  const image = imageURL.toString();
 
   return (
     <>
@@ -30,7 +27,6 @@ export default function Post({ title, description = '', readingTime, html }) {
           property="twitter:description"
           content={description}
         />
-        <meta key="twitter:image" property="twitter:image" content={image} />
         <meta key="og:title" property="og:title" content={title} />
         <meta
           key="og:description"
@@ -43,9 +39,7 @@ export default function Post({ title, description = '', readingTime, html }) {
           property="og:url"
           content={`https://josh.black/posts/${slug.join('/')}`}
         />
-        <meta key="og:image" property="og:image" content={image} />
         <meta key="description" property="description" content="Description" />
-        <meta key="image" property="image" content={image} />
         <title key="title">{title} - Josh Black</title>
       </Head>
       <Page className="Post">
