@@ -8,7 +8,7 @@
     "tsc": "tsc"
   },
   "devDependencies": {
-    "ts-node": "^9.0.0",
-    "typescript": "^4.0.3"
+    "ts-node": "^10.9.2",
+    "typescript": "^5.3.3"
   }
 }

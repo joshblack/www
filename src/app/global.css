@@ -1,0 +1,102 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-family-sans: -apple-system, BlinkMacSystemFont, avenir next, avenir,
+    segoe ui, helvetica neue, helvetica, Cantarell, Ubuntu, roboto, noto, arial,
+    sans-serif;
+  --font-family-mono: Menlo, Consolas, Monaco, Liberation Mono, Lucida Console,
+    monospace;
+  --font-family-serif: Iowan Old Style, Apple Garamond, Baskerville,
+    Times New Roman, Droid Serif, Times, Source Serif Pro, serif,
+    Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 100%;
+}
+
+*,
+*::before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  @apply bg-neutral-100;
+
+  font-family: var(--font-family-sans);
+  line-height: 1.5;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
+.visually-hidden:not(:focus):not(:active):not(:focus-within) {
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+code {
+  font-family: var(--font-family-mono);
+}
+
+/* Layouts */
+.layout-container {
+  container: layout / inline-size;
+}
+
+.content-grid,
+.full-width {
+  --padding-inline: 0.5rem;
+  --content-max-inline-size: 60ch;
+  --breakout-max-inline-size: calc(60ch + 1rem);
+
+  --breakout-size: calc(
+    (var(--breakout-max-inline-size) - var(--content-max-inline-size)) / 2
+  );
+  --content-size: min(
+    100% - (var(--padding-inline) * 2) - (var(--breakout-size) * 2),
+    var(--content-max-inline-size)
+  );
+
+  display: grid;
+
+  /* prettier-ignore */
+  grid-template-columns:
+    [full-width-start] minmax(var(--padding-inline), 1fr)
+    [breakout-start] var(--breakout-size)
+    [content-start] var(--content-size) [content-end]
+    var(--breakout-size) [breakout-end]
+    minmax(var(--padding-inline), 1fr) [full-width-end];
+}
+
+.content-grid > *:not(.breakout, .full-width),
+.full-width > *:not(.breakout, .full-width) {
+  grid-column: content;
+}
+
+.content-grid > .breakout {
+  grid-column: breakout;
+}
+
+.content-grid > .full-width {
+  grid-column: full-width;
+}
+
+@container layout (width > 30em) {
+  .content-grid,
+  .full-width {
+    --padding-inline: 1rem;
+    --breakout-size: 1rem;
+  }
+}

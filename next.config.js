@@ -1,5 +1,8 @@
-'use strict';
-
-module.exports = {
+/**
+ * @type {import('next').NextConfig}
+ */
+const config = {
   poweredByHeader: false,
 };
+
+export default config;
