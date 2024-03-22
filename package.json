@@ -1,14 +1,12 @@
 {
   "name": "@joshblack/www",
+  "type": "module",
   "private": true,
-  "version": "0.0.0",
   "author": "Josh Black <josh@josh.black>",
   "license": "MIT",
-  "workspaces": {
-    "packages": [
-      "packages/*"
-    ]
-  },
+  "workspaces": [
+    "packages/*"
+  ],
   "scripts": {
     "build": "next build",
     "clean": "rimraf .next build",
@@ -16,53 +14,41 @@
     "format": "prettier --write \"**/*.{css,js,md,scss,ts}\"",
     "format:diff": "prettier --list-different \"**/*.{css,js,md,scss,ts}\"",
     "format:staged": "prettier --write",
-    "start": "next start"
+    "lint": "eslint .",
+    "start": "next start",
+    "type-check": "tsc --noEmit",
+    "prepare": "husky"
   },
   "dependencies": {
-    "@carbon/icons-react": "^10.20.0",
-    "@fec/remark-a11y-emoji": "^2.0.0",
-    "@silvenon/remark-smartypants": "^1.0.0",
-    "classnames": "^2.2.6",
-    "date-fns": "^2.16.1",
-    "express-graphql": "^0.11.0",
-    "graphql": "^15.4.0",
-    "gray-matter": "^4.0.2",
-    "next": "^10.0.0",
-    "prismjs": "^1.22.0",
-    "prop-types": "^15.7.2",
-    "react": "^17.0.1",
-    "react-axe": "^3.5.4",
-    "react-dom": "^17.0.1",
-    "reading-time": "^1.2.0",
-    "remark": "^13.0.0",
-    "remark-autolink-headings": "^6.0.1",
-    "remark-html": "^13.0.1",
-    "remark-preset-lint-markdown-style-guide": "^4.0.0",
-    "sass": "^1.28.0",
-    "unist-util-visit": "^2.0.3"
+    "clsx": "^2.1.0",
+    "next": "^14.1.4",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "@commitlint/cli": "^11.0.0",
-    "@commitlint/config-conventional": "^11.0.0",
-    "husky": "^4.3.0",
-    "lint-staged": "^10.5.1",
-    "prettier": "^2.1.2",
-    "rimraf": "^3.0.2"
-  },
-  "husky": {
-    "hooks": {
-      "commit-msg": "commitlint -e $HUSKY_GIT_PARAMS",
-      "pre-commit": "lint-staged"
-    }
-  },
-  "commitlint": {
-    "extends": [
-      "@commitlint/config-conventional"
-    ]
+    "@types/eslint": "^8",
+    "@types/node": "^20.11.30",
+    "@types/react": "^18.2.69",
+    "@types/react-dom": "^18.2.22",
+    "@typescript-eslint/eslint-plugin": "^7.3.1",
+    "@typescript-eslint/parser": "^7.3.1",
+    "autoprefixer": "^10.4.19",
+    "eslint": "^8.57.0",
+    "eslint-config-next": "^14.1.4",
+    "eslint-plugin-react": "^7.34.1",
+    "husky": "^9.0.11",
+    "lint-staged": "^15.2.2",
+    "postcss": "^8.4.38",
+    "prettier": "^3.2.5",
+    "prettier-plugin-tailwindcss": "^0.5.12",
+    "rimraf": "^5.0.5",
+    "tailwindcss": "^3.4.1",
+    "typescript": "^5.4.3"
   },
   "lint-staged": {
-    "*.js": [
-      "yarn format:staged"
+    "*.{ts,tsx,js,cjs,mjs}": [
+      "yarn format:staged",
+      "eslint --fix"
     ],
     "*.{scss,css}": [
       "yarn format:staged"
@@ -71,11 +57,5 @@
       "yarn format:staged"
     ]
   },
-  "prettier": {
-    "jsxBracketSameLine": true,
-    "printWidth": 80,
-    "singleQuote": true,
-    "trailingComma": "es5",
-    "proseWrap": "always"
-  }
+  "packageManager": "yarn@4.1.1"
 }
