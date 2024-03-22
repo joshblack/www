@@ -5,7 +5,7 @@ export default function IndexPage() {
   return (
     <Page>
       <main className="px-[--page-padding-inline]">
-        <h1 className="mb-4 mt-[25%] text-2xl">
+        <h1 className="mb-4 mt-28 text-2xl">
           Hi there <span aria-label="wave">👋</span>
         </h1>
         <p>
