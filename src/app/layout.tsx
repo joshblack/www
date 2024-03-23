@@ -1,4 +1,5 @@
 import './globals.css';
+import { BaseLayout } from '../components/BaseLayout';
 
 export const metadata = {
   title: 'Josh Black',
@@ -12,7 +13,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <BaseLayout>{children}</BaseLayout>
+      </body>
     </html>
   );
 }
