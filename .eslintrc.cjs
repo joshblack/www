@@ -9,7 +9,14 @@ const config = {
     'next/core-web-vitals',
   ],
   plugins: [],
-  overrides: [],
+  overrides: [
+    {
+      files: ['**/*.ts', '**/*.tsx'],
+      rules: {
+        'no-console': 'error',
+      },
+    },
+  ],
 };
 
 module.exports = config;

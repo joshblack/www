@@ -4,7 +4,6 @@ import { getPostsByCategory } from '../../writing';
 
 export default async function WritingPage() {
   const categories = await getPostsByCategory();
-  console.log(categories);
   return (
     <Page>
       <main className="px-[--page-padding-inline]">
