@@ -1,7 +1,9 @@
-import { ExternalLink } from '../components/Link';
+import { ExternalLink, Link } from '../components/Link';
 import { Page } from '../components/Page';
+import { getRecentPosts } from '../writing';
 
-export default function IndexPage() {
+export default async function IndexPage() {
+  const posts = await getRecentPosts();
   return (
     <Page>
       <main className="px-[--page-padding-inline]">
@@ -18,6 +20,22 @@ export default function IndexPage() {
           </ExternalLink>
           . I write about design systems, accessibility, and the web.
         </p>
+        <h2 className="mb-6 mt-16 text-xl font-semibold">Recent posts</h2>
+        <ul className="grid gap-y-6">
+          {posts.map((post) => {
+            return (
+              <li key={post.id}>
+                <article>
+                  <Link href={`/writing/${post.slug}`}>{post.title}</Link>
+                  <div className="mb-1 text-base">{post.description}</div>
+                  <div className="text-sm text-neutral-600">
+                    {post.readingTime.text}
+                  </div>
+                </article>
+              </li>
+            );
+          })}
+        </ul>
       </main>
     </Page>
   );

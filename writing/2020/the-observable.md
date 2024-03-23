@@ -1,5 +1,8 @@
 ---
 title: 'The Observable'
+description:
+  'Dive deep into Observables, how they work, and how to build your own'
+categories: []
 date: 2020-10-25
 ---
 
@@ -425,10 +428,6 @@ helpful to learn some of the core concepts that go into building this primitive.
 
 If you're curious about more formal definitions for the topics that were touched
 on in this post, definitely check-out the appendix below!
-
-<br>
-
-Till next time -- Josh
 
 ### Appendix
 

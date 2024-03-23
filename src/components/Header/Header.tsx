@@ -1,11 +1,10 @@
 import Link from 'next/link';
-// import styles from './Header.module.css';
 
 const links: Array<{ title: string; href: string }> = [
-  // {
-  // title: 'Writing',
-  // href: '/writing',
-  // },
+  {
+    title: 'Writing',
+    href: '/writing',
+  },
 ];
 
 export function Header() {
@@ -21,7 +20,7 @@ export function Header() {
               <li key={link.href}>
                 <Link
                   href={link.href}
-                  className="flex items-center rounded-md px-2 py-1 text-neutral-700 hover:bg-neutral-200">
+                  className="flex items-center rounded-md px-2 py-1 text-base text-neutral-700 hover:bg-neutral-200">
                   {link.title}
                 </Link>
               </li>
