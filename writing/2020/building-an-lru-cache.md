@@ -1,6 +1,8 @@
 ---
 title: 'Building an LRU cache'
+description: 'Learn how to make an LRU cache in JavaScript'
 date: 2020-11-01
+categories: []
 ---
 
 An LRU Cache is a solid next step when you're trying to implement a cache but
@@ -271,7 +273,3 @@ over a long period of time.
 Either way, I hope it was fun taking a quick look at a way to implement this
 type of cache in JavaScript! Hope you find it helpful for whatever project
 you're working on.
-
-<br>
-
-Till next time -- Josh

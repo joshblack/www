@@ -3,6 +3,7 @@
  */
 const config = {
   poweredByHeader: false,
+  reactStrictMode: true,
 };
 
 export default config;

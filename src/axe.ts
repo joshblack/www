@@ -1,10 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { canUseDOM } from './environment';
 
 export async function reportAccessibilityViolations() {
   if (process.env.NODE_ENV !== 'production') {
-    const { default: axe } = await import('@axe-core/react');
-    const config = {};
-    axe(React, ReactDOM, 1000, config);
+    if (canUseDOM) {
+      const { default: axe } = await import('@axe-core/react');
+      axe(React, ReactDOM, 1000);
+    }
   }
 }

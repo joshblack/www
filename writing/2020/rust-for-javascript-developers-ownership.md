@@ -1,5 +1,7 @@
 ---
 title: 'Rust for JavaScript Developers: Ownership'
+description: 'Learn about ownership from the lenses of JavaScript'
+categories: []
 date: 2020-08-30
 ---
 
@@ -358,7 +360,3 @@ immutability and ownership.
 In the end, we hopefully came to a spot where we feel confident in translating
 some of the concepts that we might find in a JavaScript codebase over to a Rust
 codebase.
-
-<br>
-
-Till next time -- Josh
