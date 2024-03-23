@@ -14,7 +14,7 @@
     "format": "prettier --write \"**/*.{css,js,md,scss,ts}\"",
     "format:diff": "prettier --list-different \"**/*.{css,js,md,scss,ts}\"",
     "format:staged": "prettier --write",
-    "lint": "eslint .",
+    "lint": "eslint . --max-warnings=0",
     "start": "next start",
     "type-check": "tsc --noEmit",
     "prepare": "husky"
