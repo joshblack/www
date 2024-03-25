@@ -440,10 +440,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tsconfig/recommended@npm:^1.0.3":
-  version: 1.0.3
-  resolution: "@tsconfig/recommended@npm:1.0.3"
-  checksum: 10/cf2bf93d419e28b98ac82d9587035daf7dc1e0ef9b8db873a7962967d8744df352ebd2986b046911889e989d4f2caec3bf5826a4c8a4b61572d03329fdc56b34
+"@tsconfig/recommended@npm:^1.0.4":
+  version: 1.0.4
+  resolution: "@tsconfig/recommended@npm:1.0.4"
+  checksum: 10/81224801c85bbcd6dc09756ae4122c75fe056d219d9ed8c02e04e6135e34c4f8a7764dbd7c1224d259b7bbfd9a19481541feb488af1adb1d7fcb3fe5424711d3
   languageName: node
   linkType: hard
 
@@ -835,7 +835,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@www/observable@workspace:packages/observable"
   dependencies:
-    "@tsconfig/recommended": "npm:^1.0.3"
+    "@tsconfig/recommended": "npm:^1.0.4"
     ts-node: "npm:^10.9.2"
     typescript: "npm:^5.4.3"
   languageName: unknown
