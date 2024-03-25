@@ -1,4 +1,5 @@
 import { Feed } from 'feed';
+import { getPosts } from '../../writing';
 
 const feedOptions = {
   title: 'Josh Black',
@@ -21,5 +22,18 @@ const feedOptions = {
 
 export async function GET() {
   const feed = new Feed(feedOptions);
+  const posts = await getPosts();
+  for (const post of posts) {
+    if (post.status.type !== 'published') {
+      continue;
+    }
+
+    feed.addItem({
+      title: post.title,
+      description: post.description,
+      link: `https://josh.black/${post.slug}`,
+      date: post.status.date,
+    });
+  }
   return new Response(feed.rss2());
 }
