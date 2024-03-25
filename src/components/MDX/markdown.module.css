@@ -62,13 +62,13 @@
 
 /* Rehype Pretty Code */
 .md pre {
-  @apply -mx-4 mb-8 overflow-auto p-4 text-sm;
+  @apply -mx-4 mb-8 overflow-x-auto p-4 text-sm;
   clip-path: var(--path);
   border-top-right-radius: var(--radius-top);
   border-top-left-radius: var(--radius-top);
   border-bottom-right-radius: var(--radius-bottom);
   border-bottom-left-radius: var(--radius-bottom);
-  max-width: 80ch;
+  max-width: calc(100% + 2rem);
 }
 
 .md :not(pre) > code {
