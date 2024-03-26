@@ -2,6 +2,15 @@ import { ExternalLink, Link } from '../components/Link';
 import { Page } from '../components/Page';
 import { getRecentPosts } from '../writing';
 
+export const metadata = {
+  alternates: {
+    types: {
+      'application/atom+xml': 'https://josh.black/atom.xml',
+      'application/rss+xml': 'https://josh.black/rss.xml',
+    },
+  },
+};
+
 export default async function IndexPage() {
   const posts = await getRecentPosts();
   return (
