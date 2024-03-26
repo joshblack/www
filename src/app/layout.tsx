@@ -1,3 +1,4 @@
+import { SpeedInsights } from '@vercel/speed-insights/next';
 import './globals.css';
 import { BaseLayout } from '../components/BaseLayout';
 
@@ -15,6 +16,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <BaseLayout>{children}</BaseLayout>
+        <SpeedInsights />
       </body>
     </html>
   );
