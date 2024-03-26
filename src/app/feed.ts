@@ -35,7 +35,7 @@ export async function generateFeed() {
     feed.addItem({
       title: post.title,
       description: post.description,
-      link: `https://josh.black/${post.slug}`,
+      link: `https://josh.black/writing/${post.slug}`,
       date: post.status.date,
     });
   }
