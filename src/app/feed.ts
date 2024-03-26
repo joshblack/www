@@ -6,7 +6,7 @@ const year = today.getFullYear();
 const feedOptions = {
   title: 'Josh Black',
   description: 'Personal site and blog of Josh Black',
-  id: 'https://josh@josh.black',
+  id: 'https://josh.black/',
   link: 'https://josh.black',
   language: 'en',
   image: 'https://github.com/joshblack.png',
