@@ -1,4 +1,5 @@
 import { compileMDX } from 'next-mdx-remote/rsc';
+import remarkGfm from 'remark-gfm';
 import rehypePrettyCode from 'rehype-pretty-code';
 import classes from './markdown.module.css';
 
@@ -15,7 +16,7 @@ export async function MDX({ source }: Props) {
       mdxOptions: {
         format: 'mdx',
         useDynamicImport: true,
-        remarkPlugins: [],
+        remarkPlugins: [remarkGfm],
         rehypePlugins: [
           [
             // @ts-expect-error this seems to be an incorrect error
