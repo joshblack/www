@@ -1,6 +1,8 @@
 import type { MetadataRoute } from 'next';
 import { generateStaticParams } from './writing/[...slug]/page';
 
+export const baseUrl = 'https://josh.black';
+
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const posts = await generateStaticParams();
   return [
