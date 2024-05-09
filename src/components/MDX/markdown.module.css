@@ -77,3 +77,20 @@
   padding: 0.15em 0.2em 0.05em;
   white-space: normal;
 }
+
+.md a {
+  @apply text-slate-600 underline;
+}
+
+.md ul ul,
+.md ol ol,
+.md ol ul,
+.md ul ol {
+  margin-block-end: 0;
+}
+
+.md blockquote {
+  @apply rounded-xl bg-zinc-200;
+  margin-inline: -1rem;
+  padding: 1rem;
+}
