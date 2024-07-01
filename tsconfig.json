@@ -1,4 +1,5 @@
 {
+  "extends": "astro/tsconfigs/base",
   "compilerOptions": {
     "lib": [
       "dom",
@@ -17,16 +18,9 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "verbatimModuleSyntax": true,
-    "plugins": [
-      {
-        "name": "next"
-      }
-    ]
+    "plugins": []
   },
   "include": [
-    "next-env.d.ts",
-    ".next/types/**/*.ts",
-    "next.config.js",
     "eslint.config.js",
     "**/*.ts",
     "**/*.tsx"
