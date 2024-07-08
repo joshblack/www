@@ -144,7 +144,7 @@ __metadata:
     "@axe-core/react": "npm:^4.9.0"
     "@heroicons/react": "npm:^2.1.3"
     "@types/eslint": "npm:^8.56.10"
-    "@types/node": "npm:^20.12.7"
+    "@types/node": "npm:^20.14.10"
     "@types/react": "npm:^18.2.79"
     "@types/react-dom": "npm:^18.2.25"
     "@typescript-eslint/eslint-plugin": "npm:^7.7.1"
@@ -572,12 +572,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:^20.12.7":
-  version: 20.12.7
-  resolution: "@types/node@npm:20.12.7"
+"@types/node@npm:^20.14.10":
+  version: 20.14.10
+  resolution: "@types/node@npm:20.14.10"
   dependencies:
     undici-types: "npm:~5.26.4"
-  checksum: 10/b4a28a3b593a9bdca5650880b6a9acef46911d58cf7cfa57268f048e9a7157a7c3196421b96cea576850ddb732e3b54bc982c8eb5e1e5ef0635d4424c2fce801
+  checksum: 10/672892cf94d0d95cf052f11271990686a0fd204cd1e5fe7a4ef240e5315e06711765dc47b9ec98627d3adac18b8c92bb7e2d8db21d18faa20bc3e3203a143e79
   languageName: node
   linkType: hard
 
