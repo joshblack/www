@@ -8,7 +8,7 @@
     "tsc": "tsc"
   },
   "devDependencies": {
-    "@tsconfig/recommended": "^1.0.6",
+    "@tsconfig/recommended": "^1.0.7",
     "ts-node": "^10.9.2",
     "typescript": "^5.4.5"
   }
