@@ -4,17 +4,18 @@ import { getPosts, getPostBySlug } from '../../../writing';
 import { MDX } from '../../../components/MDX';
 
 type Props = {
-  params: {
+  params: Promise<{
     slug: Array<string>;
-  };
+  }>;
 };
 
-export default async function PostPage({ params }: Props) {
+export default async function PostPage(props: Props) {
+  const params = await props.params;
   const post = await getPostBySlug(params.slug.join('/'));
   return (
     <Page>
       <main className="px-[--page-padding-inline]">
-        <h1 className="mb-4 mt-32 text-5xl">{post.title}</h1>
+        <h1 className="mt-32 mb-4 text-5xl">{post.title}</h1>
         <p>{post.description}</p>
         <div className="mb-16 text-base text-neutral-600">
           {post.readingTime.text}
@@ -34,7 +35,8 @@ export async function generateStaticParams() {
   });
 }
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
+export async function generateMetadata(props: Props): Promise<Metadata> {
+  const params = await props.params;
   const post = await getPostBySlug(params.slug.join('/'));
   return {
     title: post.title + ' - Josh Black',

@@ -1,6 +1,4 @@
-'use strict';
-
-module.exports = {
+export default {
   plugins: ['prettier-plugin-tailwindcss'],
   bracketSameLine: true,
   printWidth: 80,
