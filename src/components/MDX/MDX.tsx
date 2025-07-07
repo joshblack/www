@@ -18,7 +18,6 @@ export async function MDX({ source }: Props) {
         remarkPlugins: [],
         rehypePlugins: [
           [
-            // @ts-expect-error this seems to be an incorrect error
             rehypePrettyCode,
             {
               /**

@@ -4,9 +4,6 @@
   "private": true,
   "author": "Josh Black <josh@josh.black>",
   "license": "MIT",
-  "workspaces": [
-    "packages/*"
-  ],
   "scripts": {
     "build": "next build",
     "clean": "rimraf .next build",
@@ -20,52 +17,55 @@
     "prepare": "husky"
   },
   "dependencies": {
-    "@heroicons/react": "^2.1.3",
-    "@vercel/speed-insights": "^1.0.10",
-    "clsx": "^2.1.0",
-    "feed": "^4.2.2",
+    "@heroicons/react": "^2.2.0",
+    "@vercel/speed-insights": "^1.2.0",
+    "clsx": "^2.1.1",
+    "feed": "^5.1.0",
     "gray-matter": "^4.0.3",
-    "next": "^14.2.2",
-    "next-mdx-remote": "^4.4.1",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
+    "next": "^15.3.3",
+    "next-mdx-remote": "^5.0.0",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
     "reading-time": "^1.5.0",
-    "rehype-pretty-code": "^0.13.1",
-    "shiki": "^1.3.0",
-    "zod": "^3.23.3"
+    "rehype-pretty-code": "^0.14.1",
+    "shiki": "^3.6.0",
+    "zod": "^3.25.64"
   },
   "devDependencies": {
-    "@axe-core/react": "^4.9.0",
-    "@types/eslint": "^8.56.10",
-    "@types/node": "^20.12.7",
-    "@types/react": "^18.2.79",
-    "@types/react-dom": "^18.2.25",
-    "@typescript-eslint/eslint-plugin": "^7.7.1",
-    "@typescript-eslint/parser": "^7.7.1",
-    "autoprefixer": "^10.4.19",
-    "eslint": "^8.57.0",
-    "eslint-config-next": "^14.2.2",
-    "eslint-plugin-react": "^7.34.1",
-    "husky": "^9.0.11",
-    "lint-staged": "^15.2.2",
-    "postcss": "^8.4.38",
-    "prettier": "^3.2.5",
-    "prettier-plugin-tailwindcss": "^0.5.14",
-    "rimraf": "^5.0.5",
-    "tailwindcss": "^3.4.3",
-    "typescript": "^5.4.5"
+    "@axe-core/react": "^4.10.2",
+    "@eslint/eslintrc": "^3.3.1",
+    "@eslint/js": "^9.30.1",
+    "@next/eslint-plugin-next": "^15.3.5",
+    "@tailwindcss/postcss": "^4.1.10",
+    "@types/eslint": "^9.6.1",
+    "@types/node": "^24.0.1",
+    "@types/react": "^19.1.8",
+    "@types/react-dom": "^19.1.6",
+    "autoprefixer": "^10.4.21",
+    "eslint": "^9.29.0",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.1.0",
+    "postcss": "^8.5.5",
+    "prettier": "^3.5.3",
+    "prettier-plugin-tailwindcss": "^0.6.12",
+    "rimraf": "^6.0.1",
+    "tailwindcss": "^4.1.10",
+    "typescript": "^5.8.3",
+    "typescript-eslint": "^8.35.1"
   },
   "lint-staged": {
     "*.{ts,tsx,js,cjs,mjs}": [
-      "yarn format:staged",
+      "pnpm format:staged",
       "eslint --fix"
     ],
     "*.{scss,css}": [
-      "yarn format:staged"
+      "pnpm format:staged"
     ],
     "*.md": [
-      "yarn format:staged"
+      "pnpm format:staged"
     ]
   },
-  "packageManager": "yarn@4.1.1"
+  "packageManager": "pnpm@10.12.4+sha512.5ea8b0deed94ed68691c9bad4c955492705c5eeb8a87ef86bc62c74a26b037b08ff9570f108b2e4dbd1dd1a9186fea925e527f141c648e85af45631074680184"
 }

@@ -110,6 +110,7 @@ export async function getPostsByCategory(): Promise<PostsByCategory> {
         if (!categories.has('drafts')) {
           categories.set('drafts', []);
         }
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
         categories.set('drafts', categories.get('drafts').concat(post));
       }
     }
@@ -119,6 +120,7 @@ export async function getPostsByCategory(): Promise<PostsByCategory> {
       if (!categories.has(year)) {
         categories.set(year, []);
       }
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
       categories.set(year, categories.get(year).concat(post));
     }
   }
