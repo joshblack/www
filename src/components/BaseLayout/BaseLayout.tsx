@@ -2,7 +2,7 @@
 
 import { reportAccessibilityViolations } from '../../axe';
 
-reportAccessibilityViolations();
+void reportAccessibilityViolations();
 
 export function BaseLayout({ children }: React.PropsWithChildren) {
   return children;

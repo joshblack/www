@@ -6,7 +6,7 @@ export async function reportAccessibilityViolations() {
   if (process.env.NODE_ENV !== 'production') {
     if (canUseDOM) {
       const { default: axe } = await import('@axe-core/react');
-      axe(React, ReactDOM, 1000);
+      void axe(React, ReactDOM, 1000);
     }
   }
 }

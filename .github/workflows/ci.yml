@@ -13,44 +13,50 @@ jobs:
   format:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          run_install: false
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
-          cache: 'yarn'
+          node-version-file: .nvmrc
+          cache: 'pnpm'
       - name: Install dependencies
-        run: yarn install --immutable
+        run: pnpm install
       - name: Check file formatting
-        run: yarn format:diff
+        run: pnpm format:diff
 
   lint:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          run_install: false
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
-          cache: 'yarn'
+          node-version-file: .nvmrc
+          cache: 'pnpm'
       - name: Install dependencies
-        run: yarn install --immutable
+        run: pnpm install
       - name: Run tests
-        run: yarn lint
+        run: pnpm lint
 
   type-check:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          run_install: false
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
-          cache: 'yarn'
+          node-version-file: .nvmrc
+          cache: 'pnpm'
       - name: Install dependencies
-        run: yarn install --immutable
+        run: pnpm install
       - name: Run TypeScript
-        run: yarn type-check
+        run: pnpm type-check
