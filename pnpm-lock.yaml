@@ -127,8 +127,8 @@ importers:
   packages/observable:
     devDependencies:
       '@tsconfig/recommended':
-        specifier: ^1.0.6
-        version: 1.0.8
+        specifier: ^1.0.10
+        version: 1.0.10
       ts-node:
         specifier: ^10.9.2
         version: 10.9.2(@types/node@24.0.1)(typescript@5.8.3)
@@ -590,8 +590,8 @@ packages:
   '@tsconfig/node16@1.0.4':
     resolution: {integrity: sha512-vxhUy4J8lyeyinH7Azl1pdd43GJhZH/tP2weN8TntQblOY+A0XbT8DJk1/oCPuOOyg/Ja757rG0CgHcWC8OfMA==}
 
-  '@tsconfig/recommended@1.0.8':
-    resolution: {integrity: sha512-TotjFaaXveVUdsrXCdalyF6E5RyG6+7hHHQVZonQtdlk1rJZ1myDIvPUUKPhoYv+JAzThb2lQJh9+9ZfF46hsA==}
+  '@tsconfig/recommended@1.0.10':
+    resolution: {integrity: sha512-cGvydvg03lONp5Z9yaplW493Vw9/um7k588mvDkm+VFPF2PZUVPx0uswq4PFpeEySsLbQRETrDRhzh4Dmxaslw==}
 
   '@types/debug@4.1.12':
     resolution: {integrity: sha512-vIChWdVG3LG1SMxEvI/AK+FWJthlrqlTu7fbrlywTkkaONwk/UAGaULXRlf8vkzFBLVm0zkMdCquhL5aOjhXPQ==}
@@ -2960,7 +2960,7 @@ snapshots:
 
   '@tsconfig/node16@1.0.4': {}
 
-  '@tsconfig/recommended@1.0.8': {}
+  '@tsconfig/recommended@1.0.10': {}
 
   '@types/debug@4.1.12':
     dependencies:
