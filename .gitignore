@@ -7,6 +7,7 @@ build
 
 # Cache folders
 .cache
+.turbo
 
 # Logs
 logs
