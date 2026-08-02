@@ -1,7 +1,7 @@
 type Observer<T> = {
   start?: (subscription: Subscription) => void;
   next?: (value: T) => void;
-  error?: (err: Error) => void;
+  error?: (err: unknown) => void;
   complete?: () => void;
 };
 
@@ -11,13 +11,15 @@ interface Subscription {
 
 interface Sink<T> {
   next: (value: T) => void;
-  error: (err: Error) => void;
+  error: (err: unknown) => void;
   complete: () => void;
 }
 
 interface Source<T> {
   (sink: Sink<T>): void | Subscription | (() => void);
 }
+
+type Operator<T, U> = (source: Observable<T>) => Observable<U>;
 
 export class Observable<T> {
   _source: Source<T>;
@@ -48,7 +50,7 @@ export class Observable<T> {
     });
   }
 
-  map<U>(mapFn: (T) => U): Observable<U> {
+  map<U>(mapFn: (value: T) => U): Observable<U> {
     return new Observable((sink) => {
       return this.subscribe({
         complete: sink.complete,
@@ -65,15 +67,29 @@ export class Observable<T> {
     });
   }
 
-  pipe(...operators): Observable<unknown> {
-    return operators.reduce((acc, operator) => {
-      return operator(acc);
-    }, this);
+  pipe<A>(operator: Operator<T, A>): Observable<A>;
+  pipe<A, B>(first: Operator<T, A>, second: Operator<A, B>): Observable<B>;
+  pipe<A, B, C>(
+    first: Operator<T, A>,
+    second: Operator<A, B>,
+    third: Operator<B, C>
+  ): Observable<C>;
+  pipe(
+    ...operators: Array<(source: never) => Observable<unknown>>
+  ): Observable<unknown>;
+  pipe(
+    ...operators: Array<(source: never) => Observable<unknown>>
+  ): Observable<unknown> {
+    let result: unknown = this;
+    for (const operator of operators) {
+      result = operator(result as never);
+    }
+    return result as Observable<unknown>;
   }
 }
 
 function subscribe<T>(source: Source<T>, observer: Observer<T>): Subscription {
-  let cleanup = null;
+  let cleanup: void | Subscription | (() => void);
   let closed = false;
 
   const subscription = {
@@ -118,12 +134,12 @@ function subscribe<T>(source: Source<T>, observer: Observer<T>): Subscription {
 
   function runCleanup() {
     if (cleanup) {
-      if (cleanup.unsubscribe) {
-        cleanup.unsubscribe();
-      } else {
+      if (typeof cleanup === 'function') {
         cleanup();
+      } else {
+        cleanup.unsubscribe();
       }
-      cleanup = null;
+      cleanup = undefined;
     }
   }
 
