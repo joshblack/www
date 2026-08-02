@@ -1,6 +1,6 @@
 # Build folders
-.next
-build
+.astro
+dist
 
 # Config files
 .npmrc

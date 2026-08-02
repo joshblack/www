@@ -1,0 +1,45 @@
+---
+import Page from '../components/Page/Page.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getRecentPosts } from '../writing';
+
+const posts = await getRecentPosts();
+---
+
+<BaseLayout>
+  <Page>
+    <main class="px-[--page-padding-inline]">
+      <h1 class="mt-28 mb-4 text-2xl">
+        Hi there <span aria-label="wave">👋</span>
+      </h1>
+      <p>
+        My name is Josh, I build <a
+          class="text-slate-600 underline"
+          href="https://primer.style"
+          rel="noopener noreferrer"
+          target="_blank">design systems at GitHub</a
+        >. I write about design systems, accessibility, and the web.
+      </p>
+      <h2 class="mt-16 mb-6 text-xl font-semibold">Recent posts</h2>
+      <ul class="grid gap-y-6">
+        {
+          posts.map((post) => (
+            <li>
+              <article>
+                <a
+                  class="text-slate-600 underline"
+                  href={`/writing/${post.slug}`}>
+                  {post.title}
+                </a>
+                <div class="mb-1 text-base">{post.description}</div>
+                <div class="text-sm text-neutral-600">
+                  {post.readingTime.text}
+                </div>
+              </article>
+            </li>
+          ))
+        }
+      </ul>
+    </main>
+  </Page>
+</BaseLayout>

@@ -1,0 +1,41 @@
+---
+import Page from '../../components/Page/Page.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getPostsByCategory } from '../../writing';
+
+const categories = await getPostsByCategory();
+---
+
+<BaseLayout title="Writing - Josh Black">
+  <Page>
+    <main class="px-[--page-padding-inline]">
+      <div class="grid gap-y-6">
+        <h1 class="mt-20 text-3xl">Writing</h1>
+        {
+          categories.map(([category, posts]) => (
+            <section class="grid gap-y-4">
+              <h2 id={`${category}`} class="text-2xl font-semibold">
+                {category === 'drafts' ? 'Drafts' : category}
+              </h2>
+              {posts.map((post) => (
+                <article class="text-base leading-none">
+                  <h3 class="text-xl">
+                    <a
+                      class="text-slate-600 underline"
+                      href={`/writing/${post.slug}`}>
+                      {post.title}
+                    </a>
+                  </h3>
+                  <p class="mb-1 text-base">{post.description}</p>
+                  <span class="text-sm text-neutral-600">
+                    {post.readingTime.text}
+                  </span>
+                </article>
+              ))}
+            </section>
+          ))
+        }
+      </div>
+    </main>
+  </Page>
+</BaseLayout>

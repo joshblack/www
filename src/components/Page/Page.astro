@@ -1,0 +1,11 @@
+---
+import Footer from '../Footer/Footer.astro';
+import Header from '../Header/Header.astro';
+import classes from './Page.module.css';
+---
+
+<div class={classes.page}>
+  <Header />
+  <slot />
+  <Footer />
+</div>
