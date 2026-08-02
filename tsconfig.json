@@ -1,43 +1,5 @@
 {
-  "compilerOptions": {
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
-    "allowJs": true,
-    "skipLibCheck": true,
-    "strict": true,
-    "noEmit": true,
-    "incremental": true,
-    "esModuleInterop": true,
-    "module": "esnext",
-    "moduleResolution": "bundler",
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "jsx": "preserve",
-    "verbatimModuleSyntax": true,
-    "plugins": [
-      {
-        "name": "next"
-      }
-    ],
-    "target": "esnext"
-  },
-  "include": [
-    "next-env.d.ts",
-    ".next/types/**/*.ts",
-    "next.config.js",
-    "eslint.config.js",
-    "**/*.ts",
-    "**/*.tsx",
-    "eslint.config.js",
-    "postcss.config.mjs",
-    "prettier.config.js",
-    "tailwind.config.js"
-  ],
-  "exclude": [
-    "node_modules",
-    "packages/*"
-  ]
+  "extends": "astro/tsconfigs/strict",
+  "include": [".astro/types.d.ts", "**/*"],
+  "exclude": ["dist", "node_modules", "packages/*"]
 }

@@ -1,5 +1,5 @@
 import { Feed } from 'feed';
-import { getPosts } from '../writing';
+import { getPosts } from './writing';
 
 const today = new Date();
 const year = today.getFullYear();
@@ -10,7 +10,7 @@ const feedOptions = {
   link: 'https://josh.black',
   language: 'en',
   image: 'https://github.com/joshblack.png',
-  favicon: 'https://josh.black/icon.png',
+  favicon: 'https://josh.black/favicon.ico',
   feedLinks: {
     rss: 'https://josh.black/rss.xml',
     atom: 'https://josh.black/atom.xml',

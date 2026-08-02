@@ -1,12 +1,9 @@
-/* eslint-disable */
-
 import eslint from '@eslint/js';
-import nextPlugin from '@next/eslint-plugin-next';
 import { globalIgnores } from 'eslint/config';
 import tseslint from 'typescript-eslint';
 
 export default tseslint.config(
-  globalIgnores(['.next', 'out', 'packages/*']),
+  globalIgnores(['.astro', 'dist', 'packages/*']),
   eslint.configs.recommended,
   tseslint.configs.recommendedTypeChecked,
   {
@@ -23,19 +20,7 @@ export default tseslint.config(
     },
   },
   {
-    files: ['**/*.ts', '**/*.tsx'],
-    plugins: {
-      '@next/next': nextPlugin,
-    },
-    rules: {
-      ...nextPlugin.configs.recommended.rules,
-      ...nextPlugin.configs['core-web-vitals'].rules,
-      // TypeError: context.getAncestors is not a function
-      '@next/next/no-duplicate-head': 'off',
-    },
-  },
-  {
-    files: ['**/*.ts', '**/*.tsx'],
+    files: ['**/*.ts'],
     rules: {
       'no-console': 'error',
     },
