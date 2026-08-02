@@ -41,6 +41,8 @@ jobs:
           cache: 'pnpm'
       - name: Install dependencies
         run: pnpm install
+      - name: Generate Astro types
+        run: pnpm exec astro sync
       - name: Run tests
         run: pnpm lint
 
