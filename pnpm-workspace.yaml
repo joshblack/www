@@ -1,7 +1,9 @@
 packages:
   - packages/*
 
-onlyBuiltDependencies:
-  - '@tailwindcss/oxide'
-  - '@vercel/speed-insights'
-  - unrs-resolver
+allowBuilds:
+  '@tailwindcss/oxide': true
+  '@vercel/speed-insights': true
+  esbuild: true
+  sharp: true
+  unrs-resolver: true
