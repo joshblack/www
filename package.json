@@ -13,8 +13,7 @@
     "format:staged": "prettier --write",
     "lint": "eslint . --max-warnings=0",
     "start": "astro dev",
-    "type-check": "astro check",
-    "prepare": "husky"
+    "type-check": "astro check"
   },
   "dependencies": {
     "feed": "^5.1.0",
@@ -28,8 +27,6 @@
     "@types/node": "^24.0.1",
     "astro": "7.1.6",
     "eslint": "^9.29.0",
-    "husky": "^9.1.7",
-    "lint-staged": "^16.1.0",
     "postcss": "^8.5.18",
     "prettier": "^3.5.3",
     "prettier-plugin-astro": "0.14.1",
@@ -38,18 +35,6 @@
     "tailwindcss": "^4.1.10",
     "typescript": "^5.8.3",
     "typescript-eslint": "^8.35.1"
-  },
-  "lint-staged": {
-    "*.{astro,ts,js,cjs,mjs}": [
-      "pnpm format:staged",
-      "eslint --fix"
-    ],
-    "*.{scss,css}": [
-      "pnpm format:staged"
-    ],
-    "*.md": [
-      "pnpm format:staged"
-    ]
   },
   "packageManager": "pnpm@11.18.0+sha512.33d83c77da82f49fba836925c6f1b841181ec3132b670639bd012f7075f5c7cf634c5f870147c19aae7478fac01df09d8892e880454896edd23ee9b33757563c"
 }
