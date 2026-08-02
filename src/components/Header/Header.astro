@@ -1,0 +1,23 @@
+---
+const links = [{ title: 'Writing', href: '/writing' }];
+---
+
+<header
+  class="flex h-12 items-center justify-between px-[--page-padding-inline]">
+  <a class="font-semibold" href="/">Josh Black</a>
+  <nav aria-label="Navigation" class="h-full">
+    <ul class="flex h-full items-center">
+      {
+        links.map((link) => (
+          <li>
+            <a
+              href={link.href}
+              class="flex items-center rounded-md px-2 py-1 text-base text-neutral-700 hover:bg-neutral-200">
+              {link.title}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </nav>
+</header>

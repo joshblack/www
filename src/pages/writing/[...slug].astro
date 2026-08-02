@@ -1,0 +1,40 @@
+---
+import { render } from 'astro:content';
+import Page from '../../components/Page/Page.astro';
+import classes from '../../components/MDX/markdown.module.css';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getPosts, type Post } from '../../writing';
+
+export async function getStaticPaths() {
+  const posts = await getPosts();
+
+  return posts
+    .filter((post) => post.status.type === 'published')
+    .map((post) => ({
+      params: { slug: post.slug },
+      props: { post },
+    }));
+}
+
+interface Props {
+  post: Post;
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post.entry);
+---
+
+<BaseLayout title={`${post.title} - Josh Black`} description={post.description}>
+  <Page>
+    <main class="px-[--page-padding-inline]">
+      <h1 class="mt-32 mb-4 text-5xl">{post.title}</h1>
+      <p>{post.description}</p>
+      <div class="mb-16 text-base text-neutral-600">
+        {post.readingTime.text}
+      </div>
+      <div class={classes.md}>
+        <Content />
+      </div>
+    </main>
+  </Page>
+</BaseLayout>
