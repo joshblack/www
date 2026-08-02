@@ -65,9 +65,9 @@ export function retry<T>(
   return (source) => {
     return new Observable((sink) => {
       let attemptCount = 0;
-      let subscription = null;
+      let subscription: { unsubscribe(): void } | null = null;
 
-      function handleError(error) {
+      function handleError(error: unknown) {
         if (attemptCount >= maxAttempts) {
           sink.error(error);
           return;
@@ -100,7 +100,7 @@ export function throttle<T>(
 ): (source: Observable<T>) => Observable<T> {
   return (source) => {
     return new Observable((sink) => {
-      const data = [];
+      const data: T[] = [];
       const sourceSubscription = source.subscribe({
         complete: sink.complete,
         error: sink.error,
@@ -111,7 +111,7 @@ export function throttle<T>(
       const intervalSubscription = interval(period).subscribe({
         next() {
           if (data.length > 0) {
-            sink.next(data.shift());
+            sink.next(data.shift()!);
           }
         },
       });
