@@ -6,6 +6,7 @@ const writing = defineCollection({
   loader: glob({
     pattern: '**/*.md',
     base: './writing',
+    // Keep the source available for reading-time estimates.
     retainBody: true,
   }),
   schema: z.object({
