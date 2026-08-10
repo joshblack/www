@@ -27,7 +27,7 @@
     "@types/node": "^26.1.2",
     "astro": "7.1.6",
     "eslint": "^10.8.0",
-    "postcss": "^8.5.25",
+    "postcss": "^8.5.26",
     "prettier": "^3.9.6",
     "prettier-plugin-astro": "0.14.1",
     "prettier-plugin-tailwindcss": "^0.8.1",
