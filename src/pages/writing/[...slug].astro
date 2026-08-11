@@ -26,7 +26,7 @@ const { Content } = await render(post.entry);
 
 <BaseLayout title={`${post.title} - Josh Black`} description={post.description}>
   <Page>
-    <main class="px-[--page-padding-inline]">
+    <main class="px-[var(--page-padding-inline)]">
       <h1 class="mt-32 mb-4 text-5xl">{post.title}</h1>
       <p>{post.description}</p>
       <div class="mb-16 text-base text-neutral-600">
