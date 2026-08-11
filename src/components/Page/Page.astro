@@ -4,7 +4,7 @@ import Header from '../Header/Header.astro';
 import classes from './Page.module.css';
 ---
 
-<div class={classes.page}>
+<div class:list={[classes.page, 'px-[--page-padding-inline]']}>
   <Header />
   <slot />
   <Footer />
